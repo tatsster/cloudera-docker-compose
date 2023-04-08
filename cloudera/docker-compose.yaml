@@ -1,0 +1,50 @@
+version: '2'
+services:
+  cloudera:
+    image: cloudera/quickstart:latest
+    privileged: true
+    hostname: quickstart.cloudera
+    command: /usr/bin/docker-quickstart
+    ports:
+      - "10000:10000" # Hive Server
+      - "10020:10020" # MapReduce JobHistory server 
+      - "11000:11000" # Oozie
+      - "16000:16000" # Sqoop Metastore
+      - "18080:18080" # Spark Master web UI
+      - "18081:18081" # Spark Worker web UI
+      - "18088:18088" # Spark History Server
+      - "19888:19888" # MapReduce JobHistory webapp
+      - "21000:21000" # Atlas Admin UI
+      - "21050:21050" # Impala
+      - "2181:2181"   # Zookeeper
+      - "8022:22"     # SSH
+      - "25000:25000" # Impala admin web
+      - "25010:25010" # Impala StateStore
+      - "25020:25020" # Impala Catalog
+      - "50010:50010" #
+      - "50030:50030" # MapReduce Job Tracker
+      - "50060:50060" # 
+      - "50070:50070" # HDFS Rest Namenode
+      - "50075:50075" # HDFS Rest Datanode
+      - "50090:50090" # HDFS Secondary Namenode
+      - "60000:60000" # HBase Master
+      - "60010:60010" # HBase Master UI
+      - "60030:60030" # HBase Region
+      - "7077:7077"   # Spark Master
+      - "7180:7180"   # Cloudera Manager HTTP
+      - "7183:7183"   # Cloudera Manager HTTPS
+      - "7187:7187"   #
+      - "80:80"       #
+      - "8020:8020"   # HDFS
+      - "8032:8032"   # YARN Resource Manager
+      - "8042:8042"   # YARN Node Manager
+      - "8080:8080"   # HBase Rest
+      - "8088:8088"   # YARN Resource Manager webapp
+      - "8888:8888"   # Hue
+      - "8983:8983"   # Solr
+      - "9083:9083"   # Hive Metascore
+      - "9090:9090"   # HBase Thrift
+    tty: true
+    stdin_open: true
+    volumes: 
+      - /var/shared_cloudera_quickstart:/media/shared_from_local
