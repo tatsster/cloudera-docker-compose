@@ -36,7 +36,7 @@ and We're done! Single node Cloudera Hadoop is ready for use
 ### Install Python packages
 #### Update CentOS 6 repo
 * Open CentOS-Base repo file at `/etc/yum.repos.d/CentOS-Base.repo`
-* Replace content with this ![CentOS-Base](https://github.com/tatsster/cloudera-docker-compose/blob/main/centos-repo/CentOS-Base.repo)
+* Replace content with this [CentOS-Base](https://github.com/tatsster/cloudera-docker-compose/blob/main/centos-repo/CentOS-Base.repo)
 * Run following commands
 ```
 yum clean all
