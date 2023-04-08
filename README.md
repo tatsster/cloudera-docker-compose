@@ -17,7 +17,7 @@ First, it is necessary to have Docker and Docker compose running on your OS.
 * Try to each and use Hue, http://IP:8888. User name and password is cloudera/cloudera  
 ![alt text](https://github.com/emirkorkmaz/cloudera-quickstart-docker-compose/blob/master/misc/images/hue_login.png "Hue Login")  
 
-### Start up Cloudera Manager
+## Start up Cloudera Manager
 Having installation completed, Cloudera Manager is still disabled and it is better to enable it. Here is the simple guide for enabling Cloudera Manager  
 
 * List the quickstart container and attach to it  
@@ -33,8 +33,8 @@ and We're done! Single node Cloudera Hadoop is ready for use
 
 ![alt text](https://github.com/emirkorkmaz/cloudera-quickstart-docker-compose/blob/master/misc/images/cm_services_started.png "We're Done")  
 
-### Install Python packages
-#### Update CentOS 6 repo
+## Install Python packages
+### Update CentOS 6 repo
 * Open CentOS-Base repo file at `/etc/yum.repos.d/CentOS-Base.repo`
 * Replace content with this [CentOS-Base](https://github.com/tatsster/cloudera-docker-compose/blob/main/centos-repo/CentOS-Base.repo)
 * Run following commands
@@ -67,9 +67,33 @@ curl https://raw.githubusercontent.com/tatsster/cloudera-docker-compose/main/cen
 curl https://raw.githubusercontent.com/tatsster/cloudera-docker-compose/main/centos-repo/cloudera-manager.repo -o /etc/yum.repos.d/cloudera-manager.repo
 ```
 
-#### Install python3 & packages
+### Install python3 & packages
 ```
 yum install python34 python34-pip
 
 pip3 install --upgrade pip mrjob
+```
+
+### Ready SSH (Optional)
+Install & Start SSH server in docker
+```
+yum -y install openssh-server openssh-clients
+
+chkconfig sshd on
+
+service sshd start
+```
+
+Open local machine's terminal, access by SSH with:
+```
+ssh -p 8022 cloudera@0.0.0.0
+```
+
+If having trouble in connecting SSH with `ssh-rsa, ssh-dss`, try add this in `~/.ssh/config`
+
+```
+Host *
+    User root
+    PubkeyAcceptedAlgorithms +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
 ```
