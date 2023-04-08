@@ -40,8 +40,12 @@ and We're done! Single node Cloudera Hadoop is ready for use
 * Run following commands
 ```
 yum clean all
-yum upgrade --disablerepo=cloudera-*
+
+yum upgrade --disablerepo=* --enablerepo=base
 ```
+* Use HTTPS in CentOS-Base 
+  - Comment all lines `http://linuxsoft.cern.ch`
+  - Uncomment all lines `https://vault.centos.org`
 * Update EPEL repo
 ```
 wget https://archives.fedoraproject.org/pub/archive/epel/6/x86_64/epel-release-6-8.noarch.rpm
