@@ -53,9 +53,23 @@ yum install wget --disablerepo=cloudera-*
 wget https://archives.fedoraproject.org/pub/archive/epel/6/x86_64/epel-release-6-8.noarch.rpm
 
 rpm -Uvh ./epel-release-6*.rpm
+
+rm epel-release-6-8.noarch.rpm
+```
+* Disable all Cloudera repo
+```
+curl https://raw.githubusercontent.com/tatsster/cloudera-docker-compose/main/centos-repo/cloudera-accumulo.repo -o /etc/yum.repos.d/cloudera-accumulo.repo
+
+curl https://raw.githubusercontent.com/tatsster/cloudera-docker-compose/main/centos-repo/cloudera-cdh5.repo -o /etc/yum.repos.d/cloudera-cdh5.repo
+
+curl https://raw.githubusercontent.com/tatsster/cloudera-docker-compose/main/centos-repo/cloudera-kafka.repo -o /etc/yum.repos.d/cloudera-kafka.repo
+
+curl https://raw.githubusercontent.com/tatsster/cloudera-docker-compose/main/centos-repo/cloudera-manager.repo -o /etc/yum.repos.d/cloudera-manager.repo
 ```
 
-#### Install python-pip
+#### Install python3 & packages
 ```
-yum install python-pip --disablerepo=cloudera-*
+yum install python34 python34-pip
+
+pip3 install --upgrade pip mrjob
 ```
