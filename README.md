@@ -71,6 +71,8 @@ curl https://raw.githubusercontent.com/tatsster/cloudera-docker-compose/main/cen
 ```
 yum install python34 python34-pip
 
+curl https://bootstrap.pypa.io/pip/3.4/get-pip.py -o get-pip.py | python3 get-pip.py
+
 pip3 install --upgrade pip mrjob
 ```
 
